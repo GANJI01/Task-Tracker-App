@@ -1,0 +1,126 @@
+/* src/components/TaskCard.module.css */
+
+.taskCard {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  opacity: 1;
+}
+
+.taskCardDimmed {
+  opacity: 0.5;
+}
+
+.taskCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin: 0 0 10px 0;
+  color: #1a237e;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.description {
+  color: #555;
+  font-size: 0.98rem;
+  margin-bottom: 10px;
+}
+
+.metaRow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.statusToDo {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.statusInProgress {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.statusDone {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.assignee {
+  background: #f3f4f6;
+  color: #4f46e5;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.dates {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.cardActions {
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Keep button styles consistent */
+.editButton {
+  /* Inherits global button styles */
+  background-color: #f0ad4e;
+  /* Orange */
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: white;
+  /* Ensure text is visible */
+  border: none;
+  /* Ensure no default border */
+  border-radius: 3px;
+  /* Match other buttons */
+}
+
+.editButton:hover:not(:disabled) {
+  background-color: #ec971f;
+}
+
+.deleteButton {
+  /* Inherits global button styles */
+  background-color: #d9534f;
+  /* Red */
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: white;
+  /* Ensure text is visible */
+  border: none;
+  /* Ensure no default border */
+  border-radius: 3px;
+  /* Match other buttons */
+}
+
+.deleteButton:hover:not(:disabled) {
+  background-color: #c9302c;
+}

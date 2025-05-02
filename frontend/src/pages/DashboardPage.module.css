@@ -1,0 +1,586 @@
+/* src/pages/DashboardPage.module.css */
+.projectList {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+/* Style the create form area */
+.createProjectForm {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.createProjectForm button {
+    margin-left: 10px;
+    /* Space between input and button */
+}
+
+.limitMessage {
+    color: #e87d0d;
+    /* Orange warning */
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e3eafc 0%, #cfd9f9 100%);
+}
+
+.sidebar {
+    width: 64px;
+    transition: width 0.2s;
+    background: linear-gradient(180deg, #1a237e 0%, #3949ab 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0;
+}
+
+.sidebarOpen {
+    width: 220px;
+}
+
+.mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: linear-gradient(90deg, #1a237e 0%, #3949ab 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 0 32px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.menuButton {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.searchButton,
+.notificationButton {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.userProfile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.content {
+    flex: 1;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.7);
+    position: relative;
+}
+
+.loading,
+.error {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.error {
+    color: #d32f2f;
+}
+
+.createProjectSection {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.createProjectButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.createProjectButton:hover {
+    background: #4338ca;
+}
+
+.createProjectForm {
+    margin-bottom: 32px;
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+    padding: 0 32px;
+}
+
+.tasksGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+    padding: 0 32px;
+}
+
+/* Project Card Styles */
+.projectCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.projectCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.projectCard h3 {
+    margin: 0 0 12px;
+    color: #1a237e;
+}
+
+.projectCard p {
+    margin: 8px 0;
+    color: #666;
+}
+
+.projectCard .status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.statusNotStarted {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.statusInProgress {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.statusOnHold {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.statusCompleted {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.projectCard .priority {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.priorityLow {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.priorityMedium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.priorityHigh {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.projectCard .dates {
+    font-size: 14px;
+    color: #666;
+    margin-top: 12px;
+}
+
+.projectCard .actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.projectCard button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.projectCard .editButton {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+.projectCard .editButton:hover {
+    background: #c7d2fe;
+}
+
+.projectCard .deleteButton {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.projectCard .deleteButton:hover {
+    background: #fecaca;
+}
+
+.dashboardModern {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e3eafc 0%, #cfd9f9 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.navbarModern {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #1a237e 0%, #3949ab 100%);
+    color: #fff;
+    padding: 0 32px;
+    height: 64px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 10;
+}
+
+.navTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.navActions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.createDropdownWrapper {
+    position: relative;
+}
+
+.createButtonModern {
+    background: #7c3aed;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+}
+
+.createButtonModern:hover {
+    background: #5b21b6;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #fff;
+    color: #222;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    min-width: 160px;
+    padding: 8px 0;
+    z-index: 100;
+    animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdownItem {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    text-align: left;
+    font-size: 1rem;
+    color: #222;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.dropdownItem:hover {
+    background: #f3f4f6;
+}
+
+.searchBarWrapper {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 6px;
+    padding: 0 12px;
+    height: 40px;
+    box-shadow: 0 1px 4px rgba(60, 60, 120, 0.06);
+}
+
+.searchIcon {
+    color: #7c3aed;
+    font-size: 1.1rem;
+    margin-right: 6px;
+}
+
+.searchInput {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    color: #222;
+    width: 160px;
+}
+
+.tabsRow {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #233a7e 0%, #3a49ab 100%);
+    padding: 0 32px;
+    height: 48px;
+    gap: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.tabItem {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px 6px 0 0;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+}
+
+.tabItem:hover,
+.tabItem.active {
+    background: #fff;
+    color: #1a237e;
+}
+
+.activeTab {
+    background: #fff;
+    color: #1a237e;
+    border-bottom: 3px solid #4f46e5;
+    font-weight: 700;
+}
+
+.tableHeaderRow {
+    display: grid;
+    grid-template-columns: 40px 2fr 1fr 1fr 1.2fr 1.2fr 1.2fr 1fr;
+    background: #f3f4f6;
+    color: #222;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0 32px;
+    height: 48px;
+    align-items: center;
+    border-bottom: 1px solid #e0e7ef;
+}
+
+.tableHeaderCell {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.tableBodyRow {
+    min-height: 200px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptyStateModern {
+    text-align: center;
+    margin: 80px 0;
+    color: #444;
+}
+
+.emptyStateModern h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.emptyStateModern p {
+    font-size: 1.1rem;
+    color: #888;
+}
+
+.dashboardModernWithSidebar {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e3eafc 0%, #cfd9f9 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.sidebarModern {
+    width: 220px;
+    background: linear-gradient(180deg, #1a237e 0%, #3949ab 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+    box-shadow: 2px 0 8px rgba(30, 41, 59, 0.08);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    transition: width 0.2s;
+}
+
+.sidebarModernCollapsed {
+    width: 64px;
+    background: linear-gradient(180deg, #1a237e 0%, #3949ab 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+    box-shadow: 2px 0 8px rgba(30, 41, 59, 0.08);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    transition: width 0.2s;
+    overflow-x: hidden;
+}
+
+.sidebarLogo {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.sidebarMenu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: opacity 0.2s;
+}
+
+.sidebarMenuItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+}
+
+.sidebarMenuItem:hover,
+.sidebarMenuItem.active {
+    background: #3949ab;
+    color: #ffe066;
+}
+
+.sidebarIcon {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebarLabel {
+    flex: 1;
+}
+
+.mainModernContent {
+    margin-left: 220px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left 0.2s;
+}
+
+/* When sidebar is collapsed, adjust main content margin */
+.sidebarModernCollapsed~.mainModernContent {
+    margin-left: 64px;
+}
+
+.selectedProjectCard {
+    box-shadow: 0 0 0 3px #4f46e5, 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    transition: box-shadow 0.18s;
+}

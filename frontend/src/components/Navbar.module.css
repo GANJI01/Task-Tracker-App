@@ -1,0 +1,43 @@
+/* src/components/Navbar.module.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem; /* Use rem for scalability */
+    background-color: #ffffff; /* White background */
+    border-bottom: 1px solid #e0e0e0; /* Softer border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    margin-bottom: 20px;
+  }
+  
+  .navLinks a, /* Target links within the navLinks div */
+  .navActions a { /* Target links within the navActions div */
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .navLinks a:hover,
+  .navActions a:hover {
+    color: #0056b3;
+    text-decoration: none; /* Remove underline on hover if preferred */
+  }
+  
+  .navActions span {
+    margin-right: 1rem;
+    color: #555; /* Slightly muted text color */
+  }
+  
+  .logoutButton {
+    /* Inherits basic button styles, add specifics */
+    background-color: #dc3545; /* Red for logout/delete actions */
+    border: none;
+    padding: 6px 12px; /* Slightly smaller padding */
+    font-size: 0.9rem;
+  }
+  
+  .logoutButton:hover:not(:disabled) {
+    background-color: #c82333;
+  }
